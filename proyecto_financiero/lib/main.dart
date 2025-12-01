@@ -5,7 +5,6 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:proyecto_financiero/LoginPage.dart';
 import 'firebase_options.dart';
 
-/// Ahora el main permite inyectar FirebaseAuth en pruebas
 void main({FirebaseAuth? auth, FirebaseAnalytics? analytics}) async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
       navigatorObservers: [
         if (analytics != null) FirebaseAnalyticsObserver(analytics: analytics!),
       ],
-      home: LoginPage(auth: auth ?? FirebaseAuth.instance), // <-- Nunca null
+      home: LoginPage(auth: auth ?? FirebaseAuth.instance),
     );
   }
 }
